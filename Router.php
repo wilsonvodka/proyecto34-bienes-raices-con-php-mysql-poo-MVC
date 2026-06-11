@@ -1,0 +1,32 @@
+<?php
+
+namespace MVC;
+
+class Router
+{
+
+    public $rutasGEt = [];
+    public $rutasPOST = [];
+
+    public function get($url, $fn)
+    {
+        $this->rutasGEt[$url] = $fn;
+    }
+
+    public function comprobarRutas()
+    {
+        $urlActual = $_SERVER['PATH_INFO'] ?? '/';
+        $metodo = $_SERVER['REQUEST_METHOD'];
+
+        if ($metodo === 'GET') {
+           $fn = $this->rutasGEt[$urlActual] ?? null;
+        }
+        if($fn){
+            
+            //la url existe y hay una funcion asociada
+            call_user_func($fn, $this);
+        }else{
+            echo 'pagina no encontrada';
+        }
+    }
+}
