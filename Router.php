@@ -19,14 +19,28 @@ class Router
         $metodo = $_SERVER['REQUEST_METHOD'];
 
         if ($metodo === 'GET') {
-           $fn = $this->rutasGEt[$urlActual] ?? null;
+            $fn = $this->rutasGEt[$urlActual] ?? null;
         }
-        if($fn){
-            
+        if ($fn) {
+
             //la url existe y hay una funcion asociada
             call_user_func($fn, $this);
-        }else{
+        } else {
             echo 'pagina no encontrada';
         }
+    }
+    //muestra una vista
+    public function render($view, $datos = []) {
+        foreach($datos as $key => $value){
+            $$key = $value;
+            
+        }
+        ob_start();
+
+        include __DIR__ . "/views/$view.php";
+
+        $contenido = ob_get_clean();
+
+        include __DIR__ . "/views/layout.php";
     }
 }
