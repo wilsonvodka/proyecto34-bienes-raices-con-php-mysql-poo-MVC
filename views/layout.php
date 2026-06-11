@@ -36,12 +36,12 @@ if(!isset($inicio)){
                 <div class="derecha">
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="modo oscuro">
                     <nav class="navegacion">
-                        <a href="nosotros.php">Nosotros</a>
-                        <a href="anuncios.php">Anuncios</a>
-                        <a href="blog.php">Blog</a>
-                        <a href="contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/anuncios">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
                         <?php if($auth): ?>
-                            <a href="cerrar-sesion.php">Cerrar sesión</a>
+                            <a href="/cerrar-sesion">Cerrar sesión</a>
                         <?php endif; ?>
                     </nav>
                 </div>
@@ -61,10 +61,10 @@ if(!isset($inicio)){
     <footer class="footer seccion">
     <div class="contenedor contenedor-footer">
         <nav class="navegacion">
-            <a href="nosotros.php">Nosotros</a>
-            <a href="anuncios.php">Anuncios</a>
-            <a href="blog.php">Blog</a>
-            <a href="contacto.php">Contacto</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/anuncios">Anuncios</a>
+            <a href="/blog">Blog</a>
+            <a href="/contacto">Contacto</a>
         </nav>
     </div>
     <p class="copyright">Todos los derechos reservados <?php echo date('Y') ?> &copy;</p>

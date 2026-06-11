@@ -39,13 +39,43 @@ class VendedorController
         //obtener los datos del vendedor a actualizar
         $vendedor = Vendedor::find($id);
 
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            //asignar los valores
+            $args = $_POST['vendedor'];
+            //sincroniza el objeto en memoria
+            $vendedor->sincronizar($args);
+            //validacion
+            $errores = $vendedor->validar();
+
+            if (empty($errores)) {
+                $vendedor->guardar();
+            }
+        }
+
         $router->render('vendedores/actualizar', [
             'errores' => $errores,
-            'vendedor'=> $vendedor
+            'vendedor' => $vendedor
         ]);
     }
     public static function eliminar()
     {
-        echo 'eliminar vendedor';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+         
+            
+            //valida el id
+            
+            $id = $_POST['id'];
+            $id = filter_var($id, FILTER_VALIDATE_INT);
+            if($id){
+                $tipo = $_POST['tipo'];
+                if(validarTipoContenido($tipo)){
+                    $vendedor = Vendedor::find($id);
+                    $vendedor->eliminar();
+                }
+
+            }
+        }
+
     }
 }
