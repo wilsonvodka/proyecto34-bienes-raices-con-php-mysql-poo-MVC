@@ -26,7 +26,7 @@ if(!isset($inicio)){
     <header class="header <?php echo $inicio ? 'inicio': '' ?>">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="index.php">
+                <a href="/">
                     <img src="/build/img/logo.svg" alt="logotipo de bienes raices">
                 </a>
                 <div class="mobile-menu">
@@ -37,11 +37,11 @@ if(!isset($inicio)){
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg" alt="modo oscuro">
                     <nav class="navegacion">
                         <a href="/nosotros">Nosotros</a>
-                        <a href="/anuncios">Anuncios</a>
+                        <a href="/propiedades">Anuncios</a>
                         <a href="/blog">Blog</a>
                         <a href="/contacto">Contacto</a>
                         <?php if($auth): ?>
-                            <a href="/cerrar-sesion">Cerrar sesión</a>
+                            <a href="/logout">Cerrar sesión</a>
                         <?php endif; ?>
                     </nav>
                 </div>
@@ -62,7 +62,7 @@ if(!isset($inicio)){
     <div class="contenedor contenedor-footer">
         <nav class="navegacion">
             <a href="/nosotros">Nosotros</a>
-            <a href="/anuncios">Anuncios</a>
+            <a href="/propiedades">Anuncios</a>
             <a href="/blog">Blog</a>
             <a href="/contacto">Contacto</a>
         </nav>
